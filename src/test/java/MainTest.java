@@ -24,6 +24,20 @@ class MainTest {
     }
 
     @Test
+    void testMultiplication() {
+        String input = "*\n6\n4\n";
+        String output = runMainWithInput(input);
+        assertTrue(output.contains("The result is: 24.0"));
+    }
+
+    @Test
+    void testDivision() {
+        String input = "/\n8\n2\n";
+        String output = runMainWithInput(input);
+        assertTrue(output.contains("The result is: 4.0"));
+    }
+
+    @Test
     void testDivisionByZero() {
         String input = "/\n6\n0\n";
         String output = runMainWithInput(input);
@@ -31,10 +45,24 @@ class MainTest {
     }
 
     @Test
+    void testSquareRoot() {
+        String input = "√\n16\n";
+        String output = runMainWithInput(input);
+        assertTrue(output.contains("The square root is: 4.0"));
+    }
+
+    @Test
+    void testSquareRootNegativeNumber() {
+        String input = "√\n-4\n";
+        String output = runMainWithInput(input);
+        assertTrue(output.contains("Error: Square root of a negative number is not allowed."));
+    }
+
+    @Test
     void testInvalidOperator() {
         String input = "^\n6\n4\n";
         String output = runMainWithInput(input);
-        assertTrue(output.contains("Invalid operator! Please use +, -, *, or /."));
+        assertTrue(output.contains("Invalid operator! Please use +, -, *, /, or √."));
     }
 
     private String runMainWithInput(String input) {
@@ -44,7 +72,7 @@ class MainTest {
         System.setIn(in);
         System.setOut(new PrintStream(out));
 
-        Main.main(new String[]{});
-        return out.toString();
+        Main.main(new String[]{}); // Main aufrufen
+        return out.toString(); // Ausgabe als String zurückgeben
     }
 }

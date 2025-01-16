@@ -1,49 +1,75 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 import java.util.Scanner;
+
 public class Main {
-        public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Welcome to the Calculator!");
-            System.out.println("Choose an operation: +, -, *, /");
-            char operator = scanner.next().charAt(0);
+        System.out.println("Welcome to the Calculator!");
+        System.out.println("Choose an operation: +, -, *, /, √");
+        char operator = scanner.next().charAt(0);
 
-            System.out.print("Enter the first number: ");
-            double num1 = scanner.nextDouble();
+        double num1, num2, result;
 
-            System.out.print("Enter the second number: ");
-            double num2 = scanner.nextDouble();
+        switch (operator) {
+            case '+':
+                System.out.print("Enter the first number: ");
+                num1 = scanner.nextDouble();
+                System.out.print("Enter the second number: ");
+                num2 = scanner.nextDouble();
+                result = num1 + num2;
+                System.out.println("The result is: " + result);
+                break;
 
-            double result;
+            case '-':
+                System.out.print("Enter the first number: ");
+                num1 = scanner.nextDouble();
+                System.out.print("Enter the second number: ");
+                num2 = scanner.nextDouble();
+                result = num1 - num2;
+                System.out.println("The result is: " + result);
+                break;
 
-            switch (operator) {
-                case '+':
-                    result = num1 + num2;
+            case '*':
+                System.out.print("Enter the first number: ");
+                num1 = scanner.nextDouble();
+                System.out.print("Enter the second number: ");
+                num2 = scanner.nextDouble();
+                result = num1 * num2;
+                System.out.println("The result is: " + result);
+                break;
+
+            case '/':
+                System.out.print("Enter the first number: ");
+                num1 = scanner.nextDouble();
+                System.out.print("Enter the second number: ");
+                num2 = scanner.nextDouble();
+                if (num2 != 0) {
+                    result = num1 / num2;
                     System.out.println("The result is: " + result);
-                    break;
-                case '-':
-                    result = num1 - num2;
-                    System.out.println("The result is: " + result);
-                    break;
-                case '*':
-                    result = num1 * num2;
-                    System.out.println("The result is: " + result);
-                    break;
-                case '/':
-                    if (num2 != 0) {
-                        result = num1 / num2;
-                        System.out.println("The result is: " + result);
-                    } else {
-                        System.out.println("Error: Division by zero is not allowed.");
-                    }
-                    break;
-                default:
-                    System.out.println("Invalid operator! Please use +, -, *, or /.");
-            }
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                }
+                break;
 
-            scanner.close();
+            case '√':
+                System.out.print("Enter the number to calculate the square root: ");
+                num1 = scanner.nextDouble();
+                if (num1 >= 0) {
+                    result = Math.sqrt(num1);
+                    System.out.println("The square root is: " + result);
+                } else {
+                    System.out.println("Error: Square root of a negative number is not allowed.");
+                }
+                break;
+
+            default:
+                System.out.println("Invalid operator! Please use +, -, *, /, or √.");
         }
+
+        scanner.close();
+
+        System.out.println("klevi");
     }
+}
