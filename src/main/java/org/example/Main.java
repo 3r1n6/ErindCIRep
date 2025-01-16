@@ -40,9 +40,14 @@ public class Main {
                         System.out.println("Error: Division by zero is not allowed.");
                     }
                     break;
+                case '^':
+                    result = num1 * num1;
+                    System.out.println("The square of " + num1 + " is: " + result);
+                    break;
                 default:
-                    System.out.println("Invalid operator! Please use +, -, *, or /.");
+                    System.out.println("Invalid operator! Please use +, -, *, /, or ^.");
             }
+
 
             scanner.close();
         }
