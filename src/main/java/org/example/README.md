@@ -90,3 +90,5 @@ public class Calculator {
 
 ---
 Erstellt von: Einfache Taschenrechner-Entwicklungsteam
+
+[![Java CI](https://github.com/perdix/Testing/actions/workflows/ci.yml/badge.svg)](https://github.com/perdix/Testing/actions/workflows/ci.yml)
